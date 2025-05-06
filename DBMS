@@ -1,0 +1,24 @@
+git init
+node_modules/
+.env
+package-lock.json
+git add .
+git commit -m "Initial commit"
+npm install -g pm2
+module.exports = {
+    apps: [{
+        name: 'college-management-system',
+        script: './server.js',
+        instances: 1,
+        autorestart: true,
+        max_memory_restart: '1G',
+        env: {
+            NODE_ENV: 'production'
+        }
+    }]
+};
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=password
+DB_NAME=CollegeManagement
